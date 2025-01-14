@@ -1,0 +1,15 @@
+header {
+    background-color: #000000;
+    color: #E90000;
+    height: 58px;
+    text-transform: uppercase;
+    /* line-height: 70px; */
+}
+
+.text-color {
+    color: #E90000;
+}
+
+.border-radius-button {
+    border-radius: 0px;
+}
