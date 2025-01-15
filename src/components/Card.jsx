@@ -48,6 +48,7 @@ function Card({ media }) {
             <div className={`card-body ${style.cardInner}`}>
                 <h5 className="card-title">{media.title}</h5>
                 <p className="card-text">{media.overview}</p>
+                <p>Lingua originale:</p>
                 <div className={style.flag}>
                     <img src={`/img/flags/${flag}`} alt={flag} className="img-fluid" />
                 </div>
