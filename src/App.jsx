@@ -1,17 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { HeaderComponent } from './components/HeaderComponent'
+import MainComponent from './components/MainComponent'
+import { GlobalProvider } from './contexts/GlobalContext'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <GlobalProvider>
       <HeaderComponent />
-      <h1>Hello world!</h1>
-    </>
+      <MainComponent />
+    </GlobalProvider>
   )
 }
 

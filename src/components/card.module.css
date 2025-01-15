@@ -1,0 +1,60 @@
+/* Style CSS Modules del componente Card */
+
+.cardWrapper {
+    aspect-ratio: 1/1.5;
+    position: relative;
+    overflow: hidden;
+
+    /* Involucro contenente i dettagli della card */
+    .cardInner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        color: white;
+        z-index: 2;
+        opacity: 0;
+        transition: all 0.5s;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+}
+
+.cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardEffect {
+    cursor: pointer;
+    transition: all 0.8s;
+    position: relative;
+}
+
+.cardEffect:hover {
+    scale: 1.1;
+    z-index: 1000;
+
+    .cardInner {
+        opacity: 1;
+    }
+}
+
+.isActive {
+    border: 5px solid red;
+}
+
+/* Larghezza bandiere lingua */
+.flag {
+    width: 45px;
+}
+
+.cardStar {
+    color: #ffd700;
+}

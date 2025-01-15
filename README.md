@@ -28,6 +28,8 @@ npm i --save @fortawesome/free-regular-svg-icons
 npm i --save @fortawesome/free-brands-svg-icons
 # ed anche il React Component per le Font Awesome:
 npm i --save @fortawesome/react-fontawesome@latest
+# Per installare le icone di React invece:
+npm install react-icons --save
 
  # cancello il contenuto di App.jsx e rimuovo gli import che non mi servono
  # cancello i file che non mi servono
