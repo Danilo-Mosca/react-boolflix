@@ -24,6 +24,7 @@ function Card({ media }) {
     const drawStars = () => {
         let stars = [];
         for (let i = 1; i <= 5; i++) {
+            // Controllo le star con Math.ceil che arrotonda per eccesso:
             const star = i <= Math.ceil(media["vote_average"] / 2) ? (
                 // Disegno le stelle come fossero un componente e gli assegno una key:
                 <FaStar key={i} />
@@ -43,15 +44,20 @@ function Card({ media }) {
                         :
                         `/img/flags/poster-placeholder.png`}
                 className={`card-img-top ${style.cardImg}`}
-                alt={media.title}
+                // Se media.title esiste (per i film) al testo alternativo gli assegno il media.title, altrimenti se non esiste significa che sto stampando una serie tv e quindi il testo
+                // alternativo sarà sarà contenuto in media.name (questo perchè il titolo del film nei film è contenuto nella chiave "title" mentre nelle serie tv è contenuto nella chiave "name")
+                // Effettuo il controllo usando lo "Short-Circuiting con l'operatore OR (||)
+                alt={media.title || media.name}
             />
             <div className={`card-body ${style.cardInner}`}>
-                <h5 className="card-title">{media.title}</h5>
+                {/* Come sopra, se un film il titolo del film è nella chiave "title", se una serie è nella chiave "name". Effettuo il controllo usando lo "Short-Circuiting con l'operatore OR (||) */}
+                <h5 className="card-title">{media.title || media.name}</h5>
                 <p className="card-text">{media.overview}</p>
                 <p>Lingua originale:</p>
                 <div className={style.flag}>
                     <img src={`/img/flags/${flag}`} alt={flag} className="img-fluid" />
                 </div>
+                <div>Media recensioni:</div>
                 <div className={style.cardStar}>{drawStars()}</div>
             </div>
         </div>

@@ -26,7 +26,7 @@ export function HeaderComponent() {
             <nav className="navbar d-flex">
                 <div className="container-fluid d-flex">
                     <div className={`navbar-brand ${style["text-header"]}`}>BoolFlex</div>
-                    <form className="d-flex" role="search">
+                    <form className="d-flex" role="search" onSubmit={handleSearch}>
                         <input
                             // className="form-control me-2"
                             type="search"
@@ -38,8 +38,7 @@ export function HeaderComponent() {
                         />
                         <button
                             className={`btn btn-danger ${style["border-radius-button"]}`}
-                            type="submit"
-                            onClick={handleSearch}>
+                            type="submit">
                             Cerca
                         </button>
                     </form>

@@ -5,24 +5,25 @@
     position: relative;
     overflow: hidden;
 
-    /* Involucro contenente i dettagli della card */
-    .cardInner {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        color: white;
-        z-index: 2;
-        opacity: 0;
-        transition: all 0.5s;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-    }
+    
+}
+/* Involucro contenente i dettagli della card */
+.cardInner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.5s;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
 .cardImg {
@@ -39,11 +40,13 @@
 
 .cardEffect:hover {
     scale: 1.1;
-    z-index: 1000;
+    /* All'hover sulla card imposto uno z-index maggiore di quello dell' header per mostrare la card sopra la navbar del menu quando questa viene evidenziata: */
+    z-index: 3001;
+}
 
-    .cardInner {
-        opacity: 1;
-    }
+/* All'hover sulla card assegno l'opacità a 1 per mostrare il contenuto: */
+.cardEffect:hover .cardInner {
+    opacity: 1;
 }
 
 .isActive {

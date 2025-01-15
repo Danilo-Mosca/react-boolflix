@@ -17,13 +17,13 @@ function MainComponent() {
 
             <section>
                 {((movies.length < 1) && (series.length < 1)) ? (
-                    <h1 className='mt-5 text-center align-middle'>
+                    <h1 className='mt-5 pt-5 text-center align-middle'>
                         Cerca un film o una serie tv!
                     </h1>
                 ) :
                     (<>
-                        <MediaList title="Movies" list={movies} />
-                        <SerieList name="Series" list={series} />
+                        <MediaList title="Movies" list={movies} key="movies" />
+                        <SerieList name="Series" list={series} key="series" />
                     </>)}
             </section>
         </main>
