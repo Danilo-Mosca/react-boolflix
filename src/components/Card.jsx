@@ -10,7 +10,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 // Mi ricavo il percorso dell'immagine:
 const imgPath = import.meta.env.VITE_IMG_PATH;
 
-// Creo una costante che conterrà le bandiere:
+// Creo una costante che conterrà la lista delle sigle dei paesi con le quali andremo ad associarci le bandiere:
 const flags = ["en","us", "it", "es", "fr", "de", "nl", "pt", "ru", "uk", "ua", "sv", "no", "da", "ro", "kr", "jp"];
 function Card({ media }) {
     // Controllo se nell'array flags è contenuta la sigla della lingua di uno dei paesi presenti nell'Array, in caso affermativo
