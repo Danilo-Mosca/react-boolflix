@@ -1,5 +1,5 @@
 // Importo il CSS Modules dell'header:
-import style from "./header.module.css";
+import style from "./HeaderComponent.module.css";
 // Importo l'hook useState
 import { useState } from "react";
 import { useGlobalContext } from "../contexts/GlobalContext";
@@ -25,7 +25,7 @@ export function HeaderComponent() {
         <header className={style.header}>
             <nav className="navbar d-flex">
                 <div className="container-fluid d-flex">
-                    <div className={`navbar-brand ${style["text-header"]}`}>BoolFlex</div>
+                    <div className={`navbar-brand ${style["text-header"]}`}><a href="/">BoolFlex</a></div>
                     <form className="d-flex" role="search" onSubmit={handleSearch}>
                         <input
                             // className="form-control me-2"

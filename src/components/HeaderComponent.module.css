@@ -1,0 +1,37 @@
+/* Palette colori */
+:root {
+    --color-body-header-text: #E90000;
+    --color-background-header: #000000;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background-header);
+    color: var(--color-body-header-text);
+    height: 70px;
+    text-transform: uppercase;
+    z-index: 3000;
+    /* line-height: 70px; */
+}
+
+.border-radius-button {
+    border-radius: 0px;
+}
+
+.text-header {
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--color-body-header-text);
+}
+
+a {
+    color: var(--color-body-header-text);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--color-body-header-text) ;
+}
