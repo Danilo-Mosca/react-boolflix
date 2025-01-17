@@ -1,10 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 import Card from "./Card";
 
 /*Componente che mostra i film più popolari */
 export default function MediaList({ title, list }) {
+    // useState hover del mouse sui pulsanti carosello
+    const [hoverLeft, setHoverLeft] = useState(false);
+    const [hoverRight, setHoverRight] = useState(false);
+
 
     // HOOK DI REACT CHE MI CONSENTE DI MANTENERE UN DATO SEMPRE AGGIORNATO TRA LA RERENDERIZZAZIONE DEL COMPONENTE. NON E' UNO STATO: NON POSSO
     // ASSEGNARGLI UN VALORE O UNA VARIABILE, TENGO IN MEMORIA IL SUO VALORE MA NON POSSO CAMBIARGLIELO: 
@@ -32,10 +36,42 @@ export default function MediaList({ title, list }) {
     }
 
     // Style dei pulsanti left e right del carosello
-    const carouselStyle = {
+    const carouselStyleLeft = {
         width: '48px',
         height: '48px',
         cursor: 'pointer',
+        backgroundColor: hoverLeft ? "#E90000" : "black",
+        scale: hoverLeft ? "1.3" : "",
+        zIndex: hoverLeft ? "5001" : "",
+        transition: hoverLeft ? "all 0.8s" : "all 0.8s",
+    }
+
+    const carouselStyleRight = {
+        width: '48px',
+        height: '48px',
+        cursor: 'pointer',
+        backgroundColor: hoverRight ? "#E90000" : "black",
+        scale: hoverRight ? "1.3" : "",
+        zIndex: hoverRight ? "5001" : "",
+        transition: hoverRight ? "all 0.8s" : "all 0.8s",
+    }
+
+    // IMPOSTO HOVER PER CAMBIARE STYLE CSS IN BASE AL SUO VALORE
+    function handleMouseEnter(hoverButton) {
+        if (hoverButton === "left") {
+            setHoverLeft(true);
+        }
+        else {
+            setHoverRight(true)
+        }
+    }
+    function handleMouseLeave(hoverButton) {
+        if (hoverButton === "left") {
+            setHoverLeft(false);
+        }
+        else {
+            setHoverRight(false)
+        }
     }
 
     return (
@@ -46,7 +82,7 @@ export default function MediaList({ title, list }) {
             }}>
                 {title}
             </h2>
-            
+
             {/* Con l'attributo ref={myRef} vado ad impostare l'intero <div> come valore corrente di myRef:
             è come se dicessi: document.getElementById("myRef"); 
             per leggere il valore che ho associato all'hook myRef si usa myRef.current
@@ -63,13 +99,18 @@ export default function MediaList({ title, list }) {
                 className="position-absolute top-50 start-0 bg-black z-3"
                 onClick={scrollLft}
             >
-                <FaAngleLeft style={carouselStyle} />
+                <FaAngleLeft style={carouselStyleLeft}
+                    onMouseEnter={() => { handleMouseEnter("left") }}
+                    onMouseLeave={() => { handleMouseLeave("left") }}
+                />
             </div>
             <div
                 className="position-absolute top-50 end-0 bg-black z-3"
                 onClick={scrollRgt}
             >
-                <FaAngleRight style={carouselStyle} />
+                <FaAngleRight style={carouselStyleRight}
+                    onMouseEnter={() => { handleMouseEnter("right") }}
+                    onMouseLeave={() => { handleMouseLeave("right") }} />
             </div>
         </section>
     );
